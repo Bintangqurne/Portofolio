@@ -1,12 +1,13 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 
 interface TechItem {
   name: string;
   category: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.ReactNode;
 }
 
 export default function TechStackSection() {

@@ -171,7 +171,7 @@ export default function HeroSection() {
       opacity: 1,
       transition: {
         duration: returningSkills ? 0.65 : 0,
-        ease: [0.45, 0, 0.2, 1],
+        ease: [0.45, 0, 0.2, 1] as const,
         delay: returningSkills ? i * 0.2 : 0,
       },
     }),
@@ -180,7 +180,7 @@ export default function HeroSection() {
       opacity: 1,
       transition: {
         duration: 0.65,
-        ease: [0.45, 0, 0.2, 1],
+        ease: [0.45, 0, 0.2, 1] as const,
         delay: skills[i]?.exitDelay ?? 0,
       },
     }),
