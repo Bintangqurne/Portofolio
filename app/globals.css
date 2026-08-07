@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d0d0d;
+  --foreground: #ffffff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-figtree), sans-serif;
+  --font-fragment: var(--font-fragment), monospace;
+  --font-ibm-mono: var(--font-ibm-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-family: var(--font-figtree), sans-serif;
+  overflow-x: hidden;
+}
+
+.font-figtree {
+  font-family: var(--font-figtree), sans-serif;
+}
+
+.font-fragment {
+  font-family: var(--font-fragment), monospace;
+}
+
+.font-ibm-mono {
+  font-family: var(--font-ibm-mono), monospace;
+}
+
+/* Framer Marquee Scroll */
+@keyframes marquee-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: 200%;
+  animation: marquee-left 30s linear infinite;
+}
+
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}
+
+/* Vertical grain & editorial subtle borders */
+.border-editorial {
+  border-color: rgba(255, 255, 255, 0.12);
 }
