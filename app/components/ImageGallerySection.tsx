@@ -132,7 +132,7 @@ function GalleryCard({
       </div>
       <div className="font-fragment text-xs font-semibold text-neutral-400 group-hover:text-white transition-colors uppercase tracking-wider whitespace-nowrap flex items-center justify-between">
         <span>{img.location}</span>
-        <span className="text-[#81ff28] opacity-0 group-hover:opacity-100 transition-opacity text-[10px]">VISIT ↗</span>
+        <span className="text-[#FF2A2A] opacity-0 group-hover:opacity-100 transition-opacity text-[10px]">VISIT ↗</span>
       </div>
     </motion.a>
   );
@@ -263,6 +263,21 @@ export default function ImageGallerySection() {
           style={{ x }}
           className="flex w-max shrink-0 items-center gap-16 sm:gap-28 md:gap-36 pl-6 sm:pl-12 lg:pl-[calc(max(3rem,(100vw-1280px)/2+48px))] pr-12 sm:pr-24"
         >
+          {/* Editorial Manifesto Card */}
+          <div className="shrink-0 w-[85vw] sm:w-[440px] md:w-[520px] flex flex-col justify-between self-center space-y-6 text-white font-figtree select-none pr-4 sm:pr-8">
+            <div className="space-y-4">
+              <h2 className="font-fragment font-black text-2xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white leading-[0.95]">
+                IT ISN’T A PORTFOLIO.
+              </h2>
+              <p className="font-mono text-xs sm:text-sm text-neutral-400 uppercase tracking-wider leading-relaxed">
+                IT’S THE PLACE WHERE THE WORK STAYS HONEST. AN ONGOING RECORD OF WHAT I BUILD WHEN THOUGHT MOVES FASTER THAN STRUCTURE.
+              </p>
+            </div>
+            <div className="border-t border-white/20 pt-4 font-mono text-xs sm:text-sm text-[#FF2A2A] uppercase tracking-wider font-semibold">
+              Full-Stack Developer & Software Engineer — Jakarta, ID
+            </div>
+          </div>
+
           {images.map((img, i) => (
             <GalleryCard
               key={img.location + i}

@@ -4,6 +4,7 @@ import IntroSection from "./components/IntroSection";
 import ImageGallerySection from "./components/ImageGallerySection";
 import TechStackSection from "./components/TechStackSection";
 import ExperienceSection from "./components/ExperienceSection";
+import FooterSection from "./components/FooterSection";
 
 export default function Home() {
   return (
@@ -12,8 +13,18 @@ export default function Home() {
       <HeroSection />
       <IntroSection />
       <ImageGallerySection />
-      <TechStackSection />
-      <ExperienceSection />
+      {/* Card-stacking: TechStack (sticky base) → Experience slides up over it → Footer slides over Experience */}
+      <div className="relative">
+        {/* Slot 1: TechStack — sticky, stays pinned while Experience scrolls over */}
+        <div className="sticky top-0 z-10">
+          <TechStackSection />
+        </div>
+        {/* Slot 2: Experience — relative, natural scroll slides it up over TechStack */}
+        <div className="relative z-20">
+          <ExperienceSection />
+        </div>
+      </div>
+      <FooterSection />
     </main>
   );
 }

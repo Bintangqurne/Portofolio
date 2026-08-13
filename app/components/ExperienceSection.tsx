@@ -35,7 +35,7 @@ export default function ExperienceSection() {
       activeIndex: 0,
       description: (
         <>
-          LED TECHNICAL COORDINATION FOR <span className="text-[#81ff28]">TECHNOSCAPE FLAGSHIP EVENT</span>. BRIDGED FRONTEND & BACKEND TEAMS, ALIGNED TECH STACK DECISIONS, AND DELIVERED <span className="text-[#81ff28]">HACKATHON & SEMINAR PLATFORMS</span> ON TIME.
+          LED TECHNICAL COORDINATION FOR <span className="text-[#FF2A2A]">TECHNOSCAPE FLAGSHIP EVENT</span>. BRIDGED FRONTEND & BACKEND TEAMS, ALIGNED TECH STACK DECISIONS, AND DELIVERED <span className="text-[#FF2A2A]">HACKATHON & SEMINAR PLATFORMS</span> ON TIME.
         </>
       ),
     },
@@ -48,7 +48,7 @@ export default function ExperienceSection() {
       activeIndex: 1,
       description: (
         <>
-          BUILT <span className="text-[#81ff28]">HIVE COLLABORATIVE PRODUCTIVITY TOOL</span> WITH GOOGLE CALENDAR INTEGRATION. IMPLEMENTED AUTOMATED AVAILABILITY SCHEDULING, FILE MANAGEMENT, AND <span className="text-[#81ff28]">REAL-TIME TEAM WORKFLOWS</span>.
+          BUILT <span className="text-[#FF2A2A]">HIVE COLLABORATIVE PRODUCTIVITY TOOL</span> WITH GOOGLE CALENDAR INTEGRATION. IMPLEMENTED AUTOMATED AVAILABILITY SCHEDULING, FILE MANAGEMENT, AND <span className="text-[#FF2A2A]">REAL-TIME TEAM WORKFLOWS</span>.
         </>
       ),
     },
@@ -61,7 +61,7 @@ export default function ExperienceSection() {
       activeIndex: 2,
       description: (
         <>
-          MANAGED AND LED A TEAM OF <span className="text-[#81ff28]">6–10 R&D ENGINEERS</span> AT BNCC MALANG. OVERSEEING TECHNICAL PROJECT PLANNING, DIVISION ROADMAPS, AND <span className="text-[#81ff28]">STRUCTURED DEVELOPER WORKFLOWS</span>.
+          MANAGED AND LED A TEAM OF <span className="text-[#FF2A2A]">6–10 R&D ENGINEERS</span> AT BNCC MALANG. OVERSEEING TECHNICAL PROJECT PLANNING, DIVISION ROADMAPS, AND <span className="text-[#FF2A2A]">STRUCTURED DEVELOPER WORKFLOWS</span>.
         </>
       ),
     },
@@ -74,7 +74,7 @@ export default function ExperienceSection() {
       activeIndex: 3,
       description: (
         <>
-          ARCHITECTED COMPLETE REDESIGN OF THE <span className="text-[#81ff28]">OFFICIAL BNCC WEBSITE</span> FROM THE GROUND UP. DELIVERED HIGH-PERFORMANCE UI/UX, MODERN BRAND IDENTITY, AND <span className="text-[#81ff28]">ZERO-LATENCY RESPONSIVE INTERFACES</span>.
+          ARCHITECTED COMPLETE REDESIGN OF THE <span className="text-[#FF2A2A]">OFFICIAL BNCC WEBSITE</span> FROM THE GROUND UP. DELIVERED HIGH-PERFORMANCE UI/UX, MODERN BRAND IDENTITY, AND <span className="text-[#FF2A2A]">ZERO-LATENCY RESPONSIVE INTERFACES</span>.
         </>
       ),
     },
@@ -87,16 +87,16 @@ export default function ExperienceSection() {
       activeIndex: 4,
       description: (
         <>
-          PURSUING COMPUTER SCIENCE AT <span className="text-[#81ff28]">BINUS UNIVERSITY</span> & GRADUATED HACKTIV8 FULL-STACK PROGRAM. SPECIALIZING IN <span className="text-[#81ff28]">NEXT.JS, TYPESCRIPT, GRAPHQL, REDIS & MICROSERVICES</span>.
+          PURSUING COMPUTER SCIENCE AT <span className="text-[#FF2A2A]">BINUS UNIVERSITY</span> & GRADUATED HACKTIV8 FULL-STACK PROGRAM. SPECIALIZING IN <span className="text-[#FF2A2A]">NEXT.JS, TYPESCRIPT, GRAPHQL, REDIS & MICROSERVICES</span>.
         </>
       ),
     },
   ];
 
   return (
-    <section className="relative z-50 w-full bg-[#050609] text-white py-16 sm:py-24 px-6 sm:px-12 lg:px-20 border-t overflow-hidden font-figtree">
+    <section className="w-full bg-[#050609] text-white py-16 sm:py-24 px-6 sm:px-12 lg:px-20 border-t border-white/10 overflow-hidden font-figtree">
       {/* Background Decorative Glow */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#81ff28]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF2A2A]/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Giant Title — full-bleed, scales fluidly with viewport (clamp), never overflows */}
       <div className="overflow-hidden mb-6 sm:mb-8">
@@ -105,7 +105,7 @@ export default function ExperienceSection() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
-          className="font-extrabold tracking-tighter text-[#81ff28] uppercase leading-none font-fragment select-none whitespace-nowrap"
+          className="font-extrabold tracking-tighter text-[#FF2A2A] uppercase leading-none font-fragment select-none whitespace-nowrap"
           style={{ fontSize: "clamp(56px, 15.5vw, 300px)" }}
         >
           EXPERIENCE
@@ -138,7 +138,7 @@ export default function ExperienceSection() {
             className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-2 pt-3 mt-4 text-xs font-mono tracking-widest text-neutral-400 uppercase"
           >
             <div className="flex items-center gap-2 shrink-0">
-              <span className="w-2 h-2 bg-[#81ff28] inline-block shrink-0" />
+              <span className="w-2 h-2 bg-[#FF2A2A] inline-block shrink-0" />
               <span className="text-neutral-300 h-[13px]">EXPERIENCE STORAGE — 2022-2026</span>
             </div>
             <motion.div
@@ -201,14 +201,14 @@ function ExperienceRowItem({ exp, index, hoveredId, setHoveredId }: ExperienceRo
         <div className="lg:col-span-5 flex flex-col justify-between space-y-6 sm:space-y-8">
           {/* Top-Left: Code */}
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono tracking-widest text-neutral-400 group-hover:text-[#81ff28] transition-colors uppercase">
+            <span className="text-xs font-mono tracking-widest text-neutral-400 group-hover:text-[#FF2A2A] transition-colors uppercase">
               {exp.code}
             </span>
           </div>
 
           {/* Middle: Title & Company */}
           <div className="space-y-2">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white group-hover:text-[#81ff28] transition-colors font-fragment uppercase leading-[1.05]">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white group-hover:text-[#FF2A2A] transition-colors font-fragment uppercase leading-[1.05]">
               {exp.title}
             </h3>
             <p className="text-xs sm:text-sm font-mono text-neutral-400">
@@ -227,9 +227,9 @@ function ExperienceRowItem({ exp, index, hoveredId, setHoveredId }: ExperienceRo
                     key={barIdx}
                     className={`h-[2px] transition-all duration-300 ${
                       barIdx === exp.activeIndex
-                        ? "bg-[#81ff28] w-6"
+                        ? "bg-[#FF2A2A] w-6"
                         : isHovered && barIdx <= exp.activeIndex
-                        ? "bg-[#81ff28]/50 w-5"
+                        ? "bg-[#FF2A2A]/50 w-5"
                         : "bg-neutral-800 w-4"
                     }`}
                   />
@@ -242,7 +242,7 @@ function ExperienceRowItem({ exp, index, hoveredId, setHoveredId }: ExperienceRo
 
             {/* Right: Arrow pointing right */}
             <svg
-              className="w-6 h-6 sm:w-7 sm:h-7 text-neutral-500 group-hover:text-[#81ff28] group-hover:translate-x-2 transition-all duration-300 mb-0.5"
+              className="w-6 h-6 sm:w-7 sm:h-7 text-neutral-500 group-hover:text-[#FF2A2A] group-hover:translate-x-2 transition-all duration-300 mb-0.5"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

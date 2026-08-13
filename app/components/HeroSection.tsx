@@ -237,7 +237,7 @@ export default function HeroSection() {
                 ? { duration: 1.6, delay: 0 }
                 : { duration: 0.8, delay: isInitialLoad ? 0.2 : 0 },
             }}
-            className="text-[#81ff28] font-figtree font-extrabold select-none shrink-0 ml-8 sm:ml-24 md:ml-36 flex"
+            className="text-[#FF2A2A] font-figtree font-extrabold select-none shrink-0 ml-8 sm:ml-24 md:ml-36 flex"
             style={{
               fontSize: "clamp(130px, 23vw, 360px)",
               lineHeight: 0.75,
@@ -271,7 +271,7 @@ export default function HeroSection() {
                 ? { duration: 1.6, delay: 0 }
                 : { duration: 0.8, delay: isInitialLoad ? 0.2 : 0 },
             }}
-            className="text-[#81ff28] font-figtree font-extrabold select-none shrink-0 pr-4 sm:pr-12 flex"
+            className="text-[#FF2A2A] font-figtree font-extrabold select-none shrink-0 pr-4 sm:pr-12 flex"
             style={{
               fontSize: "clamp(130px, 23vw, 360px)",
               lineHeight: 0.75,
@@ -308,7 +308,7 @@ export default function HeroSection() {
                   variants={headlineVariants}
                   initial="hidden"
                   animate={exited ? "exit" : "visible"}
-                  className="block font-figtree font-bold uppercase text-[#81ff28]"
+                  className="block font-figtree font-bold uppercase text-[#FF2A2A]"
                   style={{
                     fontSize: "clamp(34px, 4.5vw, 72px)",
                     letterSpacing: "-0.07em",
@@ -363,11 +363,11 @@ export default function HeroSection() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, ease, delay: isInitialLoad ? 2.2 : 0 }}
                   style={{ y: authorY }}
-                  className="w-1.5 sm:w-2 h-full bg-[#81ff28]"
+                  className="w-1.5 sm:w-2 h-full bg-[#FF2A2A]"
                 />
               </div>
               <div className="flex flex-col gap-0.5">
-                <div className="font-figtree font-extrabold text-lg sm:text-2xl text-[#81ff28] tracking-tight leading-tight flex items-center min-h-[32px]">
+                <div className="font-figtree font-extrabold text-lg sm:text-2xl text-[#FF2A2A] tracking-tight leading-tight flex items-center min-h-[32px]">
                   <span>{bintangTyped}</span>
                 </div>
                 <motion.div
@@ -401,7 +401,7 @@ export default function HeroSection() {
               ease,
               delay: isInitialLoad ? 0.25 : 0,
             }}
-            className="text-[#81ff28] font-figtree font-extrabold select-none text-center flex"
+            className="text-[#FF2A2A] font-figtree font-extrabold select-none text-center flex"
             style={{
               fontSize: "clamp(130px, 23vw, 360px)",
               lineHeight: 0.75,
@@ -443,7 +443,7 @@ export default function HeroSection() {
                 className="flex flex-col justify-start gap-1 font-figtree text-xs sm:text-sm uppercase tracking-wider"
               >
                 <span className="text-white font-bold">DEV/AK</span>
-                <span className="text-[#81ff28] font-extrabold text-base sm:text-lg">2026</span>
+                <span className="text-[#FF2A2A] font-extrabold text-base sm:text-lg">2026</span>
               </motion.div>
             </div>
 
@@ -456,7 +456,7 @@ export default function HeroSection() {
                   animate={{ y: 0, opacity: 0.9 }}
                   transition={{ duration: 0.8, ease, delay: isInitialLoad ? 2.2 : 0 }}
                   style={{ y: dividerY }}
-                  className="w-1.5 sm:w-2 h-full bg-[#81ff28]"
+                  className="w-1.5 sm:w-2 h-full bg-[#FF2A2A]"
                 />
               </div>
 
@@ -470,7 +470,7 @@ export default function HeroSection() {
                       initial="hidden"
                       animate={exited ? "exit" : "visible"}
                       custom={i}
-                      className="font-figtree text-xs sm:text-base font-bold uppercase tracking-widest text-[#d9d9d9] hover:text-[#81ff28] transition-colors cursor-pointer flex flex-nowrap whitespace-nowrap"
+                      className="font-figtree text-xs sm:text-base font-bold uppercase tracking-widest text-[#d9d9d9] hover:text-[#FF2A2A] transition-colors cursor-pointer flex flex-nowrap whitespace-nowrap"
                     >
                       {Array.from(skill.text).map((char, index) => (
                         <motion.span

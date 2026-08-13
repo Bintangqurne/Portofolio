@@ -153,24 +153,6 @@ export default function IntroSection() {
             I BUILD ACROSS FRONTEND, BACKEND, DATABASE & CLOUD TO ENGINEER
             THE SYSTEMS THAT MAKE PRODUCTS FEEL INEVITABLE.
           </p>
-
-          {/* Editorial Manifesto Block (Framer Vertical Style) */}
-          <div className="space-y-2 border-l-2 border-[#81ff28] pl-5 sm:pl-6 max-w-3xl">
-            <p className="font-figtree font-extrabold text-[#81ff28] uppercase text-base sm:text-lg tracking-tight">
-              IT ISN’T A PORTFOLIO.
-            </p>
-            <p className="font-figtree font-medium text-[#a3a3a3] text-sm sm:text-base leading-relaxed uppercase tracking-wide">
-              IT’S THE PLACE WHERE THE WORK STAYS HONEST. AN ONGOING RECORD OF WHAT I BUILD WHEN THOUGHT MOVES FASTER THAN STRUCTURE.
-            </p>
-          </div>
-
-          {/* Sub-tag line */}
-          <div className="flex items-center gap-4 pt-2">
-            <div className="w-8 h-0.5 bg-[#81ff28]" />
-            <span className="text-white/40 text-xs sm:text-sm uppercase tracking-widest font-bold">
-              Full-Stack Developer &amp; Software Engineer — Jakarta, ID
-            </span>
-          </div>
         </motion.div>
       </motion.div>
     </section>
