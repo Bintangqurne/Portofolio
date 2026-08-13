@@ -3,6 +3,7 @@ import HeroSection from "./components/HeroSection";
 import IntroSection from "./components/IntroSection";
 import ImageGallerySection from "./components/ImageGallerySection";
 import TechStackSection from "./components/TechStackSection";
+import ExperienceSection from "./components/ExperienceSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <IntroSection />
       <ImageGallerySection />
       <TechStackSection />
+      <ExperienceSection />
     </main>
   );
 }

@@ -135,39 +135,39 @@ export default function TechStackSection() {
   ];
 
   return (
-    <section className="w-full bg-[#0a0a0a] text-white font-figtree py-24 sm:py-36 border-t border-white/10 overflow-hidden">
+    <section className="sticky top-[-670px] z-20 w-full bg-white text-black font-figtree py-24 sm:py-36 border-t border-black/10 overflow-hidden shadow-2xl">
       <div className="max-w-7xl mx-auto px-6 sm:px-12 space-y-16 sm:space-y-24">
         
         {/* ══ HEADER SECTION ══ */}
         <div className="space-y-6">
           <div className="flex items-center gap-3">
-            <div className="w-3 h-3 bg-[#81ff28]" />
-            <span className="font-fragment text-xs sm:text-sm font-semibold uppercase tracking-widest text-[#81ff28]">
+            <div className="w-3 h-3 bg-black" />
+            <span className="font-fragment text-xs sm:text-sm font-semibold uppercase tracking-widest text-black">
               ENGINEERING &amp; CAPABILITIES
             </span>
           </div>
 
-          <h2 className="text-4xl sm:text-7xl font-black uppercase tracking-tight leading-[0.9] text-[#d9d9d9]">
+          <h2 className="text-4xl sm:text-7xl font-black uppercase tracking-tight leading-[0.9] text-black">
             TECH STACK
           </h2>
 
-          <p className="font-fragment text-neutral-400 text-sm sm:text-base max-w-3xl uppercase tracking-wider leading-relaxed pt-2">
+          <p className="font-fragment text-neutral-600 text-sm sm:text-base max-w-3xl uppercase tracking-wider leading-relaxed pt-2">
             TRANSFORMING COMPLEX SYSTEM LOGIC INTO RESILIENT DIGITAL EXPERIENCES ACROSS MODERN FRONTEND FRAMEWORKS, AWS CLOUD INFRASTRUCTURE, IOT INTEGRATIONS, AND PREDICTIVE AI MODELS.
           </p>
         </div>
 
         {/* ══ LOGO ROW GRID ══ */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 border-y border-white/10 py-8 sm:py-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-6 border-y border-black/10 py-8 sm:py-12">
           {logos.map((logo, idx) => (
             <motion.div
               key={logo.name + idx}
               whileHover={{ y: -4 }}
-              className="flex flex-col items-center justify-center p-6 bg-[#111215] border border-white/10 hover:border-[#81ff28]/50 transition-all duration-300 group space-y-3"
+              className="flex flex-col items-center justify-center p-6 bg-[#f5f5f7] border border-black/10 hover:border-black hover:bg-black transition-all duration-300 group space-y-3"
             >
-              <div className="text-neutral-400 group-hover:text-[#81ff28] transition-colors duration-300">
+              <div className="text-neutral-800 group-hover:text-[#81ff28] transition-colors duration-300">
                 {logo.svg}
               </div>
-              <span className="font-figtree font-bold text-xs uppercase tracking-wider text-neutral-300 group-hover:text-white transition-colors">
+              <span className="font-figtree font-bold text-xs uppercase tracking-wider text-black group-hover:text-white transition-colors">
                 {logo.name}
               </span>
               <span className="font-fragment text-[9px] uppercase tracking-widest text-neutral-500 group-hover:text-[#81ff28] transition-colors">
@@ -179,10 +179,10 @@ export default function TechStackSection() {
 
         {/* ══ HORIZONTAL INTERACTIVE TECH STACK LIST ══ */}
         <div className="space-y-6">
-          <div className="flex items-center justify-between border-b border-white/10 pb-4">
-            <h3 className="font-figtree font-bold text-lg sm:text-xl uppercase tracking-wider text-white flex items-center gap-3">
+          <div className="flex items-center justify-between border-b border-black/10 pb-4">
+            <h3 className="font-figtree font-bold text-lg sm:text-xl uppercase tracking-wider text-black flex items-center gap-3">
               <span>CORE STACK ARCHITECTURE</span>
-              <span className="text-[#81ff28] text-xs font-mono font-normal">// 06 SPECIFICATIONS</span>
+              <span className="text-neutral-500 text-xs font-mono font-normal">// 06 SPECIFICATIONS</span>
             </h3>
             <span className="font-fragment text-xs text-neutral-500 uppercase tracking-widest hidden sm:inline-block">
               HOVER TO INSPECT CAPABILITY ↘
@@ -194,32 +194,32 @@ export default function TechStackSection() {
             {stackItems.map((item, index) => (
               <div
                 key={item.name + index}
-                className="group relative bg-[#0e0f12] border border-white/10 p-6 sm:p-8 cursor-pointer transition-all duration-500 hover:bg-[#81ff28] hover:border-[#81ff28] overflow-hidden"
+                className="group relative bg-[#f5f5f7] border border-black/10 p-6 sm:p-8 cursor-pointer transition-all duration-500 hover:bg-black hover:border-black overflow-hidden"
               >
                 {/* Number Accent */}
-                <div className="flex items-center justify-between font-mono text-xs text-neutral-500 group-hover:text-black/60 transition-colors duration-300 pb-4">
+                <div className="flex items-center justify-between font-mono text-xs text-neutral-400 group-hover:text-[#81ff28] transition-colors duration-300 pb-4">
                   <span>0{index + 1}</span>
-                  <div className="group-hover:text-black transition-colors">
+                  <div className="group-hover:text-[#81ff28] transition-colors">
                     {item.icon}
                   </div>
                 </div>
 
                 {/* Tech Title & Category */}
                 <div className="space-y-2 pt-2">
-                  <span className="block font-fragment text-[10px] font-bold text-[#81ff28] group-hover:text-black/80 uppercase tracking-widest transition-colors duration-300">
+                  <span className="block font-fragment text-[10px] font-bold text-neutral-500 group-hover:text-[#81ff28] uppercase tracking-widest transition-colors duration-300">
                     {item.category}
                   </span>
-                  <h4 className="font-figtree font-black text-xl sm:text-2xl text-white group-hover:text-black uppercase tracking-tight transition-colors duration-300">
+                  <h4 className="font-figtree font-black text-xl sm:text-2xl text-black group-hover:text-white uppercase tracking-tight transition-colors duration-300">
                     {item.name}
                   </h4>
-                  <p className="font-figtree font-medium text-xs sm:text-sm text-neutral-400 group-hover:text-black/90 leading-relaxed uppercase tracking-wide transition-colors duration-300 pt-2">
+                  <p className="font-figtree font-medium text-xs sm:text-sm text-neutral-600 group-hover:text-neutral-300 leading-relaxed uppercase tracking-wide transition-colors duration-300 pt-2">
                     {item.description}
                   </p>
                 </div>
 
                 {/* Hover Arrow Indicator */}
                 <div className="pt-6 flex justify-end">
-                  <span className="text-neutral-500 group-hover:text-black font-bold text-sm transition-all duration-300 transform group-hover:translate-x-1">
+                  <span className="text-black group-hover:text-[#81ff28] font-bold text-sm transition-all duration-300 transform group-hover:translate-x-1">
                     →
                   </span>
                 </div>
@@ -231,4 +231,4 @@ export default function TechStackSection() {
       </div>
     </section>
   );
-}
+} 
