@@ -127,8 +127,8 @@ export default function FooterSection() {
         </p>
       </div>
 
-      {/* ══ BOTTOM COPYRIGHT BAR (3-COLUMN CENTERED GRID) ══ */}
-      <div className="border-t border-black py-4 px-6 sm:px-12 lg:px-16 grid grid-cols-1 sm:grid-cols-3 items-center gap-4 font-mono text-[12px] uppercase text-black/90 font-semibold">
+      {/* ══ BOTTOM COPYRIGHT BAR (VERY COMPACT VERTICAL SPACING) ══ */}
+      <div className="border-t border-black py-1 sm:py-1.5 px-6 sm:px-12 lg:px-16 grid grid-cols-1 sm:grid-cols-3 items-center gap-2 font-mono text-[11px] sm:text-[12px] uppercase text-black/90 font-semibold">
         {/* Left: Copyright Notice */}
         <div className="justify-self-center sm:justify-self-start text-center sm:text-left">
           © 2026 BINTANG QURNE. ALL RIGHTS RESERVED.
