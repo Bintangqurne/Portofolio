@@ -127,16 +127,20 @@ export default function IntroSection() {
             className="flex-1 pt-0 mt-0"
           >
             <h2
-              className="font-figtree font-black text-[#d9d9d9] uppercase leading-[0.90] tracking-tight"
-              style={{ fontSize: "clamp(30px, 5.2vw, 86px)", letterSpacing: "-0.03em" }}
+              className="w-full font-figtree text-[clamp(28px,8.8vw,42px)] font-black uppercase leading-[0.9] tracking-[-0.04em] text-[#d9d9d9] md:text-[clamp(30px,5.2vw,86px)] md:tracking-[-0.03em]"
             >
-              CODE IS A<br />
-              CONTROLLED<br />
-              SYSTEM —<br />
-              A PRACTICE<br />
-              OF BUILDING<br />
-              WHAT SCALE<br />
-              DEMANDS.
+              <span className="md:hidden">
+                Code is a controlled system — a practice of building what scale demands.
+              </span>
+              <span className="hidden md:inline">
+                CODE IS A<br />
+                CONTROLLED<br />
+                SYSTEM —<br />
+                A PRACTICE<br />
+                OF BUILDING<br />
+                WHAT SCALE<br />
+                DEMANDS.
+              </span>
             </h2>
           </motion.div>
         </div>
@@ -147,8 +151,7 @@ export default function IntroSection() {
           className="w-full pt-6 sm:pt-8 space-y-8 sm:space-y-10"
         >
           <p
-            className="font-figtree font-black text-[#d9d9d9] uppercase leading-[0.93] tracking-tight max-w-6xl"
-            style={{ fontSize: "clamp(22px, 4vw, 68px)", letterSpacing: "-0.03em" }}
+            className="w-full max-w-none font-figtree text-[clamp(17px,5vw,23px)] font-black uppercase leading-[0.96] tracking-[-0.025em] text-[#d9d9d9] md:max-w-6xl md:text-[clamp(22px,4vw,68px)] md:leading-[0.93] md:tracking-[-0.03em]"
           >
             I BUILD ACROSS FRONTEND, BACKEND, DATABASE & CLOUD TO ENGINEER
             THE SYSTEMS THAT MAKE PRODUCTS FEEL INEVITABLE.
@@ -177,7 +180,7 @@ export default function IntroSection() {
 
             {/* LinkedIn */}
             <a
-              href="https://linkedin.com/in/bintangqurne"
+              href="https://www.linkedin.com/in/ayatullah-bintang-qurne-19a0992ba/"
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-3 px-6 py-3 bg-transparent text-white font-figtree font-black text-sm uppercase tracking-widest border-2 border-white/30 hover:border-white hover:bg-white hover:text-black transition-all duration-300"

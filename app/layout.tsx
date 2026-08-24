@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Fragment_Mono, IBM_Plex_Mono } from "next/font/google";
+import { Caveat, Figtree, Fragment_Mono, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const figtree = Figtree({
@@ -21,6 +21,12 @@ const ibmPlexMono = IBM_Plex_Mono({
   style: ["normal", "italic"],
 });
 
+const caveat = Caveat({
+  variable: "--font-signature",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Vertical — Editorial-Style Portfolio",
   description: "Vertical is a bold, modern portfolio template for artists, designers, and studios.",
@@ -32,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${figtree.variable} ${fragmentMono.variable} ${ibmPlexMono.variable} dark h-full antialiased`}
+      className={`${figtree.variable} ${fragmentMono.variable} ${ibmPlexMono.variable} ${caveat.variable} dark h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0d0d0d] text-[#ffffff] font-sans selection:bg-white selection:text-black">
         <SmoothScroll>{children}</SmoothScroll>
@@ -40,4 +46,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-

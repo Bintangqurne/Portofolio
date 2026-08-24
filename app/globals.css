@@ -11,6 +11,7 @@
   --font-sans: var(--font-figtree), sans-serif;
   --font-fragment: var(--font-fragment), monospace;
   --font-ibm-mono: var(--font-ibm-mono), monospace;
+  --font-signature: var(--font-signature), cursive;
 }
 
 html.lenis, html.lenis body {
@@ -46,6 +47,10 @@ body {
 
 .font-ibm-mono {
   font-family: var(--font-ibm-mono), monospace;
+}
+
+.font-signature {
+  font-family: var(--font-signature), cursive;
 }
 
 /* Framer Marquee Scroll */

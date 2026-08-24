@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent, useTransform, useSpring } from "framer-motion";
 
 export default function HeroSection() {
@@ -191,7 +192,97 @@ export default function HeroSection() {
   const ngLetters = ["N", "G"];
 
   return (
-    <section ref={wrapperRef} className="relative w-full h-screen overflow-hidden bg-[#050609] text-white font-figtree">
+    <section ref={wrapperRef} className="relative h-[100svh] w-full overflow-hidden bg-[#050609] font-figtree text-white lg:h-screen">
+      {/* Mobile editorial poster */}
+      <div className="absolute inset-0 overflow-hidden lg:hidden">
+        <motion.div
+          initial={{ scale: 1.08, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="/images/aku.png"
+            alt="Bintang Qurne"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[52%_center]"
+          />
+        </motion.div>
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.58)_0%,rgba(0,0,0,.14)_34%,rgba(0,0,0,.2)_56%,rgba(0,0,0,.9)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.52),transparent_46%,rgba(0,0,0,.16))]" />
+        <div className="hero-mobile-grain pointer-events-none absolute inset-0 opacity-[0.16]" />
+
+        <div className="relative z-10 flex h-full flex-col px-5 pb-5 pt-[5.75rem]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.25, ease }}
+            className="max-w-[96%]"
+          >
+            <p className="text-[clamp(41px,12.25vw,55px)] font-black uppercase leading-[0.86] tracking-[-0.072em] text-[#ff2a2a]">
+              I build systems
+            </p>
+            <p className="text-[clamp(45px,13.55vw,61px)] font-black uppercase leading-[0.84] tracking-[-0.075em] text-white">
+              to power what
+            </p>
+            <p className="text-[clamp(35px,10.2vw,46px)] font-black uppercase leading-[0.87] tracking-[-0.067em] text-white">
+              users experience
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -22 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.75, delay: 0.62, ease }}
+            className="mt-4 flex items-stretch gap-3"
+          >
+            <span className="w-1.5 bg-[#ff2a2a]" />
+            <div>
+              <p className="text-lg font-black uppercase leading-none tracking-[-0.04em] text-[#ff2a2a] min-[390px]:text-xl">Bintang Qurne</p>
+              <p className="mt-1.5 font-ibm-mono text-[9.5px] font-medium uppercase tracking-[0.065em] text-white/85 min-[390px]:text-[10px]">Full-stack developer / software engineer</p>
+            </div>
+          </motion.div>
+
+          <div className="pointer-events-none absolute inset-x-0 top-[55%] -translate-y-1/2 overflow-hidden px-3">
+            <motion.p
+              initial={{ x: "-105%" }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1.05, delay: 0.48, ease }}
+              className="whitespace-nowrap text-center text-[clamp(64px,20.8vw,100px)] font-black uppercase leading-[0.7] tracking-[-0.105em] text-[#ff2a2a]"
+            >
+              Bintang
+            </motion.p>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.82, ease }}
+            className="mb-7 mt-auto grid grid-cols-[72px_1fr] items-start gap-4"
+          >
+            <div className="pb-0.5 font-ibm-mono text-[11px] font-bold uppercase leading-[1.3] tracking-[0.065em]">
+              <p className="text-white/75">DEV/AK</p>
+              <p className="text-xl font-black tracking-[-0.04em] text-[#ff2a2a]">2026</p>
+            </div>
+            <div className="border-l-[7px] border-[#ff2a2a] pl-3.5">
+              {skills.map((skill) => (
+                <p key={skill.text} className="font-ibm-mono text-xs font-bold uppercase leading-[1.48] tracking-[0.045em] text-white/95 min-[390px]:text-[13px]">
+                  {skill.text}
+                </p>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="mt-4 flex items-center justify-between border-t border-white/35 pt-3 font-ibm-mono text-[7px] uppercase tracking-[0.12em] text-white/60">
+            <span>Jakarta · Indonesia</span>
+            <span>Scroll to explore ↓</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="hidden h-full lg:block">
       {/* ── Hero Background Image & Giant Watermark ("DEPLOY") ── */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -503,6 +594,14 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      </div>
+
+      <style jsx global>{`
+        .hero-mobile-grain {
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+          mix-blend-mode: soft-light;
+        }
+      `}</style>
     </section>
   );
 }

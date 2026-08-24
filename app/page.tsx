@@ -1,9 +1,11 @@
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import IntroSection from "./components/IntroSection";
+import AboutMeSection from "./components/AboutMeSection";
 import ImageGallerySection from "./components/ImageGallerySection";
 import TechStackSection from "./components/TechStackSection";
 import ExperienceSection from "./components/ExperienceSection";
+import MusicPlayer from "./components/MusicPlayer";
 import FooterSection from "./components/FooterSection";
 
 export default function Home() {
@@ -24,6 +26,8 @@ export default function Home() {
           <ExperienceSection />
         </div>
       </div>
+      <MusicPlayer />
+      <AboutMeSection />
       <FooterSection />
     </main>
   );

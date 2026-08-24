@@ -69,10 +69,10 @@ export default function FooterSection() {
 
       {/* ══ MIDDLE CONTENT GRID ══ */}
       <div className="border-t-2 border-b-2 border-black my-1 py-3 sm:py-4 w-full" data-framer-name="Content">
-        <div className="w-full px-6 sm:px-12 lg:px-16 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-stretch font-mono text-xs sm:text-sm">
+        <div className="grid w-full grid-cols-2 items-stretch gap-x-5 gap-y-8 px-6 font-mono text-xs sm:px-12 sm:text-sm md:grid-cols-12 lg:gap-12 lg:px-16">
           
           {/* Col 1: Phone & Email (Left side) */}
-          <div className="h-full md:col-span-5 md:border-l-[8px] border-black pl-2 md:pl-3 lg:pl-3 space-y-4 flex flex-col justify-start" data-framer-name="Phone & Email">
+          <div className="col-span-2 flex h-full flex-col justify-start space-y-4 border-l-[7px] border-black pl-3 md:col-span-5 md:border-l-[8px] lg:pl-3" data-framer-name="Phone & Email">
             <div>
               <button
                 onClick={handleCopyPhone}
@@ -92,20 +92,19 @@ export default function FooterSection() {
           </div>
 
           {/* Col 2: Navigation Menu (Pushed Right with Text Roll Effect) */}
-          <div className="h-full md:col-span-4 md:border-l-[8px] border-black pl-2 md:pl-3 lg:pl-4 space-y-0.5 flex flex-col justify-start" data-framer-name="Menu">
-            <RollLink href="#hero">HOME</RollLink>
-            <RollLink href="#gallery">WORK</RollLink>
-            <RollLink href="#intro">ABOUT</RollLink>
-            <RollLink href="#tech-stack">THOUGHTS</RollLink>
-            <RollLink href="#experience">CONTACT</RollLink>
+          <div className="col-span-1 flex h-full flex-col justify-start space-y-0.5 border-l-[7px] border-black pl-3 md:col-span-4 md:border-l-[8px] lg:pl-4" data-framer-name="Menu">
+            <RollLink href="/">HOME</RollLink>
+            <RollLink href="/work">WORK</RollLink>
+            <RollLink href="/#about-me">ABOUT</RollLink>
+            <RollLink href="/contact">CONTACT</RollLink>
           </div>
 
           {/* Col 3: Social Channels (Pushed Far Right, Text Roll Effect, NO left divider) */}
-          <div className="h-full md:col-span-3 space-y-0.5 flex flex-col justify-start md:pl-4 lg:pl-8" data-framer-name="Social">
-            <RollLink href="https://github.com" external>GITHUB</RollLink>
-            <RollLink href="https://youtube.com" external>YOUTUBE</RollLink>
-            <RollLink href="https://instagram.com" external>INSTAGRAM</RollLink>
-            <RollLink href="https://linkedin.com" external>LINKEDIN</RollLink>
+          <div className="col-span-1 flex h-full flex-col justify-start space-y-0.5 pl-1 md:col-span-3 md:pl-4 lg:pl-8" data-framer-name="Social">
+            <RollLink href="https://github.com/bintangqurne" external>GITHUB</RollLink>
+            <RollLink href="https://youtube.com/@bintangqurne" external>YOUTUBE</RollLink>
+            <RollLink href="https://instagram.com/bintangqurne" external>INSTAGRAM</RollLink>
+            <RollLink href="https://www.linkedin.com/in/ayatullah-bintang-qurne-19a0992ba/" external>LINKEDIN</RollLink>
           </div>
 
         </div>
@@ -128,28 +127,26 @@ export default function FooterSection() {
       </div>
 
       {/* ══ BOTTOM COPYRIGHT BAR (VERY COMPACT VERTICAL SPACING) ══ */}
-      <div className="border-t border-black py-1 sm:py-1.5 px-6 sm:px-12 lg:px-16 grid grid-cols-1 sm:grid-cols-3 items-center gap-2 font-mono text-[11px] sm:text-[12px] uppercase text-black/90 font-semibold">
+      <div className="relative grid grid-cols-1 items-center gap-2 border-t border-black px-6 py-3 pr-16 font-mono text-[10px] font-semibold uppercase text-black/90 sm:grid-cols-3 sm:px-12 sm:py-2 sm:pr-12 sm:text-[12px] lg:px-16">
         {/* Left: Copyright Notice */}
-        <div className="justify-self-center sm:justify-self-start text-center sm:text-left">
+        <div className="justify-self-start text-left">
           © 2026 BINTANG QURNE. ALL RIGHTS RESERVED.
         </div>
 
-        {/* Center: Scroll to top button */}
-        <div className="justify-self-center flex justify-center">
-          <button
-            onClick={scrollToTop}
-            className="text-xl sm:text-2xl font-bold text-black hover:text-white transition-colors duration-200 cursor-pointer p-2 select-none"
-            aria-label="Scroll to top"
-          >
-            ↑
-          </button>
-        </div>
-
-        {/* Right: Custom Credit / Status */}
-        <div className="justify-self-center sm:justify-self-end text-center sm:text-right flex items-center gap-2">
+        {/* Custom Credit / Status */}
+        <div className="flex items-center justify-self-start gap-2 text-left sm:col-start-3 sm:row-start-1 sm:justify-self-end sm:text-right">
           <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
           <span>DESIGNED & DEVELOPED BY BINTANG</span>
         </div>
+
+        {/* Scroll to top button — anchored at the footer's bottom-right on mobile. */}
+        <button
+          onClick={scrollToTop}
+          className="absolute bottom-2 right-5 cursor-pointer p-2 text-2xl font-bold text-black transition-colors duration-200 hover:text-white sm:static sm:col-start-2 sm:row-start-1 sm:justify-self-center sm:text-3xl"
+          aria-label="Scroll to top"
+        >
+          ↑
+        </button>
       </div>
 
     </footer>

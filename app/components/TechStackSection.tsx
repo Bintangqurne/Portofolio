@@ -1,12 +1,13 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import type { CSSProperties } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function TechStackSection() {
+  const reduceMotion = useReducedMotion();
   const techLogos = [
     {
-      name: "NEXT.JS 15",
+      name: "NEXT.JS 16",
       category: "FRONTEND & SSR",
       color: "#000000",
       svg: (
@@ -135,7 +136,7 @@ export default function TechStackSection() {
 
   const stackItems = [
     {
-      name: "NEXT.JS 15",
+      name: "NEXT.JS 16",
       category: "FRONTEND FRAMEWORK",
       desc: "App Router, SSR, Server Actions & React Server Components",
     },
@@ -184,7 +185,7 @@ export default function TechStackSection() {
           </div>
 
           <h2
-            className="font-fragment font-extrabold uppercase text-black leading-[0.85] tracking-tighter select-none whitespace-nowrap"
+            className="font-figtree font-black uppercase text-black leading-[0.78] tracking-[-0.085em] select-none whitespace-nowrap"
             style={{ fontSize: "clamp(56px, 15.5vw, 300px)" }}
           >
             TECH STACK
@@ -195,7 +196,7 @@ export default function TechStackSection() {
         <div className="w-full overflow-hidden border-y border-black/10 py-5 bg-[#f8f9fa]">
           <motion.div
             className="flex w-max items-center gap-4 sm:gap-6"
-            animate={{ x: ["0%", "-50%"] }}
+            animate={reduceMotion ? undefined : { x: ["0%", "-50%"] }}
             transition={{
               repeat: Infinity,
               ease: "linear",
@@ -208,8 +209,8 @@ export default function TechStackSection() {
                 className="shrink-0 flex items-center gap-3 px-6 py-3 bg-white border border-black/15 shadow-sm hover:bg-black hover:text-white transition-all duration-300 group cursor-pointer"
               >
                 <div
-                  className="group-hover:scale-110 transition-all duration-300"
-                  style={{ color: item.color }}
+                  className="text-[#ff2a2a] transition-all duration-300 group-hover:scale-110 group-hover:[color:var(--tech-logo-color)]"
+                  style={{ "--tech-logo-color": item.color } as CSSProperties}
                 >
                   {item.svg}
                 </div>
@@ -228,7 +229,7 @@ export default function TechStackSection() {
         <div className="w-full overflow-hidden pb-4">
           <motion.div
             className="flex w-max items-center gap-6"
-            animate={{ x: ["-50%", "0%"] }}
+            animate={reduceMotion ? undefined : { x: ["-50%", "0%"] }}
             transition={{
               repeat: Infinity,
               ease: "linear",
