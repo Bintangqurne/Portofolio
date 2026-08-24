@@ -192,7 +192,7 @@ export default function HeroSection() {
   const ngLetters = ["N", "G"];
 
   return (
-    <section ref={wrapperRef} className="relative h-[100svh] w-full overflow-hidden bg-[#050609] font-figtree text-white lg:h-screen">
+    <section ref={wrapperRef} className="hero-viewport relative w-full overflow-hidden bg-[#050609] font-figtree text-white lg:h-screen">
       {/* Mobile editorial poster */}
       <div className="absolute inset-0 overflow-hidden lg:hidden">
         <motion.div
@@ -214,20 +214,20 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.52),transparent_46%,rgba(0,0,0,.16))]" />
         <div className="hero-mobile-grain pointer-events-none absolute inset-0 opacity-[0.16]" />
 
-        <div className="relative z-10 flex h-full flex-col px-5 pb-5 pt-[5.75rem]">
+        <div className="mobile-hero-content relative z-10 flex h-full flex-col px-5">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.25, ease }}
-            className="max-w-[96%]"
+            className="mobile-hero-headline w-full"
           >
-            <p className="text-[clamp(41px,12.25vw,55px)] font-black uppercase leading-[0.86] tracking-[-0.072em] text-[#ff2a2a]">
+            <p className="whitespace-nowrap text-[clamp(30px,10.25vw,45px)] font-black uppercase leading-[0.86] tracking-[-0.074em] text-[#ff2a2a]">
               I build systems
             </p>
-            <p className="text-[clamp(45px,13.55vw,61px)] font-black uppercase leading-[0.84] tracking-[-0.075em] text-white">
+            <p className="whitespace-nowrap text-[clamp(35px,11.65vw,50px)] font-black uppercase leading-[0.84] tracking-[-0.077em] text-white">
               to power what
             </p>
-            <p className="text-[clamp(35px,10.2vw,46px)] font-black uppercase leading-[0.87] tracking-[-0.067em] text-white">
+            <p className="whitespace-nowrap text-[clamp(28px,9.15vw,40px)] font-black uppercase leading-[0.87] tracking-[-0.069em] text-white">
               users experience
             </p>
           </motion.div>
@@ -236,7 +236,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: -22 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.75, delay: 0.62, ease }}
-            className="mt-4 flex items-stretch gap-3"
+            className="mobile-hero-author mt-4 flex items-stretch gap-3"
           >
             <span className="w-1.5 bg-[#ff2a2a]" />
             <div>
@@ -245,7 +245,7 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          <div className="pointer-events-none absolute inset-x-0 top-[55%] -translate-y-1/2 overflow-hidden px-3">
+          <div className="mobile-hero-name pointer-events-none absolute inset-x-0 top-[55%] -translate-y-1/2 overflow-hidden px-3">
             <motion.p
               initial={{ x: "-105%" }}
               animate={{ x: 0 }}
@@ -260,7 +260,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.82, ease }}
-            className="mb-7 mt-auto grid grid-cols-[72px_1fr] items-start gap-4"
+            className="mobile-hero-meta mb-7 mt-auto grid grid-cols-[72px_1fr] items-start gap-4"
           >
             <div className="pb-0.5 font-ibm-mono text-[11px] font-bold uppercase leading-[1.3] tracking-[0.065em]">
               <p className="text-white/75">DEV/AK</p>
@@ -275,7 +275,7 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          <div className="mt-4 flex items-center justify-between border-t border-white/35 pt-3 font-ibm-mono text-[7px] uppercase tracking-[0.12em] text-white/60">
+          <div className="mobile-hero-footer mt-4 flex items-center justify-between border-t border-white/35 pt-3 font-ibm-mono text-[7px] uppercase tracking-[0.12em] text-white/60">
             <span>Jakarta · Indonesia</span>
             <span>Scroll to explore ↓</span>
           </div>
@@ -600,6 +600,54 @@ export default function HeroSection() {
         .hero-mobile-grain {
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
           mix-blend-mode: soft-light;
+        }
+        .hero-viewport {
+          height: 100vh;
+          min-height: 620px;
+        }
+        .mobile-hero-content {
+          padding-top: max(5.75rem, calc(env(safe-area-inset-top) + 4.5rem));
+          padding-right: max(1.25rem, env(safe-area-inset-right));
+          padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+          padding-left: max(1.25rem, env(safe-area-inset-left));
+        }
+        @supports (height: 100dvh) {
+          .hero-viewport {
+            height: 100dvh;
+          }
+        }
+        @media (max-width: 1023px) and (max-height: 720px) {
+          .mobile-hero-content {
+            padding-top: max(4.9rem, calc(env(safe-area-inset-top) + 3.8rem));
+            padding-bottom: max(.75rem, env(safe-area-inset-bottom));
+          }
+          .mobile-hero-author {
+            margin-top: .75rem;
+          }
+          .mobile-hero-name {
+            top: 54%;
+          }
+          .mobile-hero-meta {
+            margin-bottom: .85rem;
+          }
+          .mobile-hero-footer {
+            margin-top: .5rem;
+            padding-top: .5rem;
+          }
+        }
+        @media (max-width: 1023px) and (max-height: 640px) {
+          .hero-viewport {
+            min-height: 580px;
+          }
+          .mobile-hero-headline p:nth-child(1) {
+            font-size: clamp(29px, 9.7vw, 41px);
+          }
+          .mobile-hero-headline p:nth-child(2) {
+            font-size: clamp(34px, 11vw, 46px);
+          }
+          .mobile-hero-headline p:nth-child(3) {
+            font-size: clamp(27px, 8.65vw, 37px);
+          }
         }
       `}</style>
     </section>

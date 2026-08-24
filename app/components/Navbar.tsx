@@ -70,7 +70,7 @@ export default function Navbar() {
       transition={{ duration: 1.2, ease, delay: 0.2 }}
       className="pointer-events-none fixed top-0 z-[100] w-full bg-transparent lg:mix-blend-difference"
     >
-      <div className="relative z-20 flex w-full items-center justify-between gap-2 px-5 py-4 pointer-events-auto sm:gap-5 sm:px-8">
+      <div className="mobile-navbar-inner relative z-20 flex w-full items-center justify-between gap-2 px-5 py-4 pointer-events-auto sm:gap-5 sm:px-8">
         {/* Logo Lockup */}
         <Link
           href="/"
@@ -137,14 +137,15 @@ export default function Navbar() {
         {menuOpen ? (
           <motion.div
             id="mobile-navigation"
-            initial={{ clipPath: "circle(0% at calc(100% - 40px) 34px)" }}
-            animate={{ clipPath: "circle(150% at calc(100% - 40px) 34px)" }}
-            exit={{ clipPath: "circle(0% at calc(100% - 40px) 34px)" }}
-            transition={{ duration: 0.72, ease: [0.76, 0, 0.24, 1] }}
-            className="pointer-events-auto fixed inset-0 z-10 overflow-hidden bg-black/80 px-5 pb-7 pt-24 text-white backdrop-blur-2xl lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            className="mobile-navigation-panel pointer-events-auto fixed inset-0 z-10 overflow-hidden bg-transparent px-5 text-white lg:hidden"
           >
-            <div aria-hidden="true" className="absolute -right-20 top-20 h-64 w-64 rounded-full bg-[#ff2a2a]/20 blur-3xl" />
-            <div aria-hidden="true" className="mobile-nav-grid absolute inset-0 opacity-20" />
+            <div aria-hidden="true" className="absolute inset-0 bg-black/72" />
+            <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.28))]" />
+            <div aria-hidden="true" className="absolute -right-20 top-20 h-64 w-64 rounded-full bg-[#ff2a2a]/14 blur-3xl" />
 
             <div className="relative z-10 flex h-full flex-col">
               <nav className="mt-2 flex flex-col items-end" aria-label="Mobile navigation">
@@ -202,11 +203,24 @@ export default function Navbar() {
       </AnimatePresence>
 
       <style jsx global>{`
-        .mobile-nav-grid {
-          background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-          background-size: 42px 42px;
-          mask-image: linear-gradient(to bottom, transparent, black 14%, black 88%, transparent);
+        @media (max-width: 1023px) {
+          .mobile-navbar-inner {
+            padding-top: max(1rem, env(safe-area-inset-top));
+            padding-right: max(1.25rem, env(safe-area-inset-right));
+            padding-left: max(1.25rem, env(safe-area-inset-left));
+          }
+          .mobile-navigation-panel {
+            height: 100vh;
+            padding-top: max(6rem, calc(env(safe-area-inset-top) + 5rem));
+            padding-right: max(1.25rem, env(safe-area-inset-right));
+            padding-bottom: max(1.75rem, env(safe-area-inset-bottom));
+            padding-left: max(1.25rem, env(safe-area-inset-left));
+          }
+          @supports (height: 100dvh) {
+            .mobile-navigation-panel {
+              height: 100dvh;
+            }
+          }
         }
       `}</style>
     </motion.header>

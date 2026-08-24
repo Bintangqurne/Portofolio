@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Caveat, Figtree, Fragment_Mono, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -30,6 +30,12 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Vertical — Editorial-Style Portfolio",
   description: "Vertical is a bold, modern portfolio template for artists, designers, and studios.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 import SmoothScroll from "./components/SmoothScroll";
