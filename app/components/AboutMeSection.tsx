@@ -273,15 +273,30 @@ export default function AboutMeSection() {
               ))}
             </ul>
 
-            <Link
-              href="/work"
-              className="group mt-9 inline-flex items-center gap-3 bg-[#ff2a2a] px-2 py-1 text-xl font-black uppercase leading-none tracking-[-0.05em] text-black transition-colors duration-300 hover:bg-white sm:text-2xl"
-            >
-              View the work
-              <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">
-                →
-              </span>
-            </Link>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Link
+                href="/work"
+                className="group inline-flex items-center gap-3 bg-[#ff2a2a] px-2 py-1 text-xl font-black uppercase leading-none tracking-[-0.05em] text-black transition-colors duration-300 hover:bg-white sm:text-2xl"
+              >
+                View the work
+                <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1.5">
+                  →
+                </span>
+              </Link>
+              <a
+                href="/resume.pdf"
+                download="Bintang-Qurne-Resume.pdf"
+                className="group inline-flex items-center gap-3 border border-white/30 px-2 py-1 text-xl font-black uppercase leading-none tracking-[-0.05em] text-white transition-colors duration-300 hover:border-[#ff2a2a] hover:text-[#ff2a2a] focus-visible:border-[#ff2a2a] focus-visible:outline-none sm:text-2xl"
+              >
+                Resume
+                <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-y-1">
+                  ↓
+                </span>
+              </a>
+            </div>
+            <p className="mt-3 font-ibm-mono text-[9px] uppercase tracking-[0.08em] text-white/40">
+              PDF · Download my resume
+            </p>
           </div>
         </motion.div>
       </div>

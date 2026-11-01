@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Navbar from "../components/Navbar";
 import { FreeformGallery } from "./components/FreeformGallery";
 import type { GalleryItem } from "./components/gallery-types";
 
@@ -8,16 +9,6 @@ export const metadata: Metadata = {
 };
 
 const galleryItems: GalleryItem[] = [
-  {
-    image: "/images/gallery/fatma.jpeg",
-    code: "FATM",
-    title: "Fatma",
-    description:
-      "Some people arrive quietly and make everyday life feel lighter. I am grateful I met Fatma—her warm smile, generous heart, and steady encouragement mean more to me than she probably knows. I hope she remains part of the chapters ahead.",
-    category: "Personal",
-    year: "",
-    aspectRatio: 960 / 1280,
-  },
   {
     image: "/images/gallery/coreTraining.jpeg",
     code: "CORE4",
@@ -59,7 +50,7 @@ const galleryItems: GalleryItem[] = [
     aspectRatio: 3024 / 4032,
   },
   {
-    image: "/images/gallery/myAktivis%20.jpeg",
+    image: "/images/gallery/myAktivis.jpeg",
     code: "RND1",
     title: "My R&D Activists",
     description:
@@ -123,6 +114,7 @@ const galleryItems: GalleryItem[] = [
 export default function GalleryPage() {
   return (
     <main style={{ width: "100%", height: "100dvh", minHeight: 520 }}>
+      <Navbar />
       <FreeformGallery images={galleryItems} />
     </main>
   );

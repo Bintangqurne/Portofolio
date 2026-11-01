@@ -22,6 +22,7 @@ type InfiniteCanvasProps = {
   frameSize: number;
   hoverStrength: number;
   momentumStrength: number;
+  activeCategory: string | null;
   shouldBlockSelection: () => boolean;
   onSelect: (selection: GallerySelection) => void;
 };
@@ -50,6 +51,7 @@ export function InfiniteCanvas({
   frameSize,
   hoverStrength,
   momentumStrength,
+  activeCategory,
   shouldBlockSelection,
   onSelect,
 }: InfiniteCanvasProps) {
@@ -250,6 +252,7 @@ export function InfiniteCanvas({
               frameSize={frameSize}
               hoverStrength={hoverStrength}
               introActive={introActive}
+              dimmed={activeCategory !== null && images[index].category !== activeCategory}
               deckOffset={{
                 x: viewport.width * 0.5 - x,
                 y: viewport.height * 0.5 - y,

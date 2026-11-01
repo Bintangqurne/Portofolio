@@ -1,3 +1,4 @@
+import { getImageProps } from "next/image";
 import type { GalleryImageSource } from "./gallery-types";
 
 export const GRID_COLUMNS = 4;
@@ -13,6 +14,23 @@ export function imageSource(image: GalleryImageSource) {
 
 export function imageSourceSet(image: GalleryImageSource) {
   return typeof image === "string" ? undefined : image.srcSet;
+}
+
+// Routes plain image paths through the Next.js optimizer so tiles load a resized
+// file instead of the multi-megabyte original. Custom srcSets are kept as-is.
+export function responsiveImage(image: GalleryImageSource, ratio: number, sizes: string) {
+  if (typeof image !== "string" && image.srcSet) {
+    return { src: image.src, srcSet: image.srcSet, sizes: undefined };
+  }
+
+  const { props } = getImageProps({
+    src: imageSource(image),
+    alt: "",
+    width: 1600,
+    height: Math.round(1600 / ratio),
+    sizes,
+  });
+  return { src: props.src, srcSet: props.srcSet, sizes: props.sizes };
 }
 
 export function imageAlt(image: GalleryImageSource, fallback: string) {

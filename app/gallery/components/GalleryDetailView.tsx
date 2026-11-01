@@ -17,7 +17,7 @@ import type {
   GalleryTypography,
   ViewportSize,
 } from "./gallery-types";
-import { imageAlt, imageSource, imageSourceSet, modulo } from "./gallery-utils";
+import { imageAlt, imageSource, modulo, responsiveImage } from "./gallery-utils";
 import { preloadGalleryImage, useImageAspectRatio } from "./useImageAspectRatio";
 
 type GalleryDetailViewProps = {
@@ -62,6 +62,7 @@ function DetailContent({
   const item = images[selection.index];
   const src = imageSource(item.image);
   const ratio = useImageAspectRatio(src, item.aspectRatio);
+  const optimized = responsiveImage(item.image, ratio, "(max-width: 767px) 100vw, 75vw");
   const stageRef = useRef<HTMLDivElement>(null);
   const gestureStart = useRef<number | null>(null);
   const wheelAmount = useRef(0);
@@ -177,7 +178,11 @@ function DetailContent({
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.16 }}
             >
-              {imageCode(item, selection.index)}
+              <span className="fg-detail-code-id">{imageCode(item, selection.index)}</span>
+              <span>{item.category}</span>
+              <span className="fg-detail-count">
+                {String(selection.index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+              </span>
             </motion.p>
           </AnimatePresence>
 
@@ -197,8 +202,9 @@ function DetailContent({
                 <motion.img
                   key={src}
                   className="fg-detail-image"
-                  src={src}
-                  srcSet={imageSourceSet(item.image)}
+                  src={optimized.src}
+                  srcSet={optimized.srcSet}
+                  sizes={optimized.sizes}
                   alt={imageAlt(item.image, item.title)}
                   draggable={false}
                   initial={{ opacity: 0.18 }}
@@ -245,7 +251,7 @@ function DetailContent({
         images={images}
         selectedIndex={selection.index}
         size={thumbnailSize}
-        frameColor={frameColor}
+        frameColor="#ff2a2a"
         onSelect={(index) =>
           startTransition(() => onChange({ index, tileKey: `detail-${index}` }))
         }

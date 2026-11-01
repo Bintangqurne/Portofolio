@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import { GalleryFrame } from "./GalleryFrame";
 import type { GalleryItem } from "./gallery-types";
-import { imageAlt, imageSource, imageSourceSet } from "./gallery-utils";
+import { imageAlt, imageSource, responsiveImage } from "./gallery-utils";
 import { useImageAspectRatio } from "./useImageAspectRatio";
 
 type GalleryTileProps = {
@@ -20,6 +20,7 @@ type GalleryTileProps = {
   frameSize: number;
   hoverStrength: number;
   introActive: boolean;
+  dimmed: boolean;
   deckOffset: { x: number; y: number };
   shouldSuppressClick: () => boolean;
   onSelect: (index: number, tileKey: string) => void;
@@ -38,6 +39,7 @@ export function GalleryTile({
   frameSize,
   hoverStrength,
   introActive,
+  dimmed,
   deckOffset,
   shouldSuppressClick,
   onSelect,
@@ -46,6 +48,7 @@ export function GalleryTile({
   const tiltFrame = useRef<number | null>(null);
   const src = imageSource(item.image);
   const ratio = useImageAspectRatio(src, item.aspectRatio);
+  const optimized = responsiveImage(item.image, ratio, "360px");
 
   function handlePointerMove(event: React.PointerEvent<HTMLButtonElement>) {
     const node = tiltRef.current;
@@ -70,7 +73,7 @@ export function GalleryTile({
 
   return (
     <div
-      className="fg-tile-position"
+      className={`fg-tile-position${dimmed ? " is-dimmed" : ""}`}
       style={{
         left: x,
         top: y,
@@ -81,6 +84,7 @@ export function GalleryTile({
         type="button"
         className="fg-tile"
         aria-label={`Open ${item.title}`}
+        tabIndex={dimmed ? -1 : undefined}
         initial={
           introActive
             ? {
@@ -116,8 +120,9 @@ export function GalleryTile({
             >
               <img
                 className="fg-tile-image"
-                src={src}
-                srcSet={imageSourceSet(item.image)}
+                src={optimized.src}
+                srcSet={optimized.srcSet}
+                sizes={optimized.sizes}
                 alt={imageAlt(item.image, item.title)}
                 draggable={false}
                 loading="lazy"

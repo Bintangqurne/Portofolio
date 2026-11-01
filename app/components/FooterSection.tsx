@@ -30,8 +30,8 @@ export default function FooterSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
 
-  const email = "bintangqurne@gmail.com";
-  const phone = "+62 812-3456-7890";
+  const email = "bintangqurne07@gmail.com";
+  const phone = "085850901520";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);

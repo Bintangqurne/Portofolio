@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
@@ -56,6 +56,20 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       lenisRef.current = null;
     };
   }, []);
+
+  // Next.js keeps the previous scroll offset while the new page is still in view,
+  // and Lenis keeps its own target, so every route change starts from the top.
+  const isFirstRender = useRef(true);
+  useLayoutEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (window.location.hash) return;
+
+    window.scrollTo(0, 0);
+    lenisRef.current?.scrollTo(0, { immediate: true, force: true });
+  }, [pathname]);
 
   useEffect(() => {
     if (typeof window === "undefined" || !window.location.hash) return;

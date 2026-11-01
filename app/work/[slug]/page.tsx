@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import FooterSection from "../../components/FooterSection";
 import Navbar from "../../components/Navbar";
-import { caseStudies, getCaseStudy } from "../caseStudies";
+import { caseStudies, getCaseStudy, getNextProject } from "../caseStudies";
 import WorkPageTransition from "../WorkPageTransition";
 import ProjectCaseStudy from "./ProjectCaseStudy";
 
@@ -35,10 +35,10 @@ export default async function WorkCaseStudyPage({
   if (!project) notFound();
 
   return (
-    <div className="min-h-screen bg-[#f2f1ed] font-figtree">
+    <div className="min-h-screen bg-[#050609] font-figtree">
       <WorkPageTransition />
       <Navbar />
-      <ProjectCaseStudy project={project} />
+      <ProjectCaseStudy project={project} nextProject={getNextProject(project.slug)} />
       <FooterSection />
     </div>
   );

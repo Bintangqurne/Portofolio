@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import type { GalleryItem } from "./gallery-types";
-import { imageAlt, imageSource, imageSourceSet } from "./gallery-utils";
+import { imageAlt, responsiveImage } from "./gallery-utils";
 
 type GalleryThumbnailsProps = {
   images: GalleryItem[];
@@ -59,8 +59,7 @@ export function GalleryThumbnails({
             }}
           >
             <img
-              src={imageSource(item.image)}
-              srcSet={imageSourceSet(item.image)}
+              {...responsiveImage(item.image, item.aspectRatio ?? 4 / 3, "96px")}
               alt={imageAlt(item.image, item.title)}
               draggable={false}
             />

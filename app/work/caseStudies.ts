@@ -286,3 +286,35 @@ export const caseStudies: CaseStudyProject[] = [
 export function getCaseStudy(slug: string) {
   return caseStudies.find((project) => project.slug === slug);
 }
+
+export type ProjectLink = {
+  code: string;
+  title: string;
+  category: string;
+  cover: string;
+  href: string;
+};
+
+const hiveLink: ProjectLink = {
+  code: "PRJ—02",
+  title: "Hive",
+  category: "Collaborative workspace",
+  cover: "/images/projects/covers/Hive.jpeg",
+  href: "/work/hive",
+};
+
+const projectSequence: ProjectLink[] = [
+  ...caseStudies.map(({ code, title, category, cover, slug }) => ({
+    code,
+    title,
+    category,
+    cover,
+    href: `/work/${slug}`,
+  })),
+  hiveLink,
+].sort((a, b) => a.code.localeCompare(b.code));
+
+export function getNextProject(slug: string) {
+  const index = projectSequence.findIndex((project) => project.href === `/work/${slug}`);
+  return projectSequence[(index + 1) % projectSequence.length];
+}
